@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <string.h>
 #include <assert.h>
 
 #define HEAP_CAPACITY 640000
@@ -172,10 +173,10 @@ void heap_collect(void *ptr){
 
 int main(){
 
-    char *p=(char*)heap_alloc(10);
-    p="airueknhrghakjgkhlgshfkjh";
+    void *p=heap_alloc(3);
+    p="abwertfgjyhkjnkmljlhbvdfxvgjhbjvgvhnjk";
 
-    printf("%s\n",p);
+    printf("%p size of p=%ld\n",*(&p),sizeof(*p));
 
     chunk_list_dump(&allocated_chunks);
     chunk_list_dump(&free_chunks);
